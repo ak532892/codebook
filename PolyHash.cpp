@@ -41,7 +41,7 @@ public:
             }
             init(n);
         }
-        void init(long long n, vector<long long> num) {
+        void init(long long n, vector<long long>& num) {
             //num is 0 indexed
             arr.resize(n + 5);
             for (long long i = 1; i <= n; i++) {
