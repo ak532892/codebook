@@ -33,7 +33,7 @@ public:
                 hashes2[i] %= mod2;
             }
         }
-        void init(long long n, string s) {
+        void init(long long n, string& s) {
             //string is 0 indexed
             arr.resize(n + 5);
             for (long long i = 1; i <= n; i++) {
