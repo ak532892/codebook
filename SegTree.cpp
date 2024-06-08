@@ -10,7 +10,7 @@ public:
 
 	// init for range [1, n] with val
 	SegTreeNode(int n, T val) {
-		int SIZE = 4 * n;
+		int SIZE = 2 << (32 - __builtin_clz(n));
 		tree.assign(SIZE, val);
 		treeMin.assign(SIZE, val);
 		treeMax.assign(SIZE, val);
@@ -20,7 +20,7 @@ public:
 	// init for range [1, n] with nums
 	// 1-index
 	SegTreeNode(int n, const vector<T>& nums) {
-		int SIZE = 4 * n;
+		int SIZE = 2 << (32 - __builtin_clz(n));
 		tree.assign(SIZE, 0);
 		treeMin.assign(SIZE, 0);
 		treeMax.assign(SIZE, 0);
@@ -34,7 +34,7 @@ public:
 		treeMax[id] = max(treeMax[id * 2], treeMax[id * 2 + 1]);
 	}
 	void initSize(int n) {
-		int SIZE = 4 * n;
+		int SIZE = 2 << (32 - __builtin_clz(n));
 		tree.assign(SIZE, 0);
 		treeMin.assign(SIZE, 0);
 		treeMax.assign(SIZE, 0);
