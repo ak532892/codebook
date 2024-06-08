@@ -64,7 +64,7 @@ public:
     // set tree[i] as value
     // time: O(log(n))
     void setValue(int i, T value) {
-        T oldValue = sumRange(i, i);
+        T oldValue = queryRangeSum(i, i);
         T delta = value - oldValue;
 
         while (i < n) {
@@ -86,7 +86,7 @@ public:
 
     // sum of a range nums[l, r] inclusively
     // time: O(log(n))
-    T sumRange(int l, int r) {
+    T queryRangeSum(int l, int r) {
         if ((l == 0) || (r == 0) || (l > r)) {
             return 0;
         }
