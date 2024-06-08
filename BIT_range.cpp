@@ -69,7 +69,7 @@ public:
     }
 
     // sum of a range nums[l, r] inclusively
-    T sumRange(T left, T right) {
+    T queryRangeSum(T left, T right) {
         return queryPreSum(right) - queryPreSum(left - 1);
     }
 };
@@ -79,4 +79,4 @@ fenwick_tree2<long long> t2(nums);
 // or t2.init(nums);
 int val;
 t2.updateRange(left, right, val);
-t2.sumRange(left, right);
+t2.queryRangeSum(left, right);
