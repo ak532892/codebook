@@ -40,8 +40,10 @@ template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag
 using ll = long long;
 using ld = long double;
 
+#define pf push_front
 #define pb push_back
-#define pp pop_back
+#define rpf pop_front
+#define rpb pop_back
 #define mp make_pair
 #define x first
 #define y second
