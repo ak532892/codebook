@@ -55,6 +55,7 @@ using ld = long double;
 #define ub upper_bound
 #define all(x) x.begin(), x.end()
 #define rall(x) x.rbegin(), x.rend()
+#define uniq(x) x.erase(unique(all(x)), x.end());
 #define sz(x) (int)x.size()
 
 #define ZERO(x) memset(x, 0, sizeof(x))
