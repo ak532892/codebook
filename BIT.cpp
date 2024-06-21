@@ -160,6 +160,7 @@ public:
 fenwick_tree<int> t1(n + 1);
 // or t1.init(n + 1);
 
+// t1.setValue(i + 1, 1);
 // t1.setValueMinMax(i + 1, nums[i]);
 // t1.queryRangeMinMax(l + 1, r + 1);
 // t1.KthLargest(k)
