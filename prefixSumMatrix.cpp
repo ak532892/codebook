@@ -2,7 +2,8 @@ template <typename T>
 class prefixSumMatrix {
 public:
     vector<vector<T>> prefix;
-
+    int m, n;
+    
     prefixSumMatrix(const vector<vector<int>>& matrix) {
         init(matrix);
     }
@@ -15,7 +16,7 @@ public:
     prefixSumMatrix() {}
     
     void init(const vector<vector<int>>& matrix) {
-        int m = matrix.size(), n = matrix[0].size();
+        m = matrix.size(), n = matrix[0].size();
         prefix = vector(m + 1, vector<T>(n + 1, 0));
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -24,7 +25,7 @@ public:
         }
     }
     void init(const vector<vector<long long>>& matrix) {
-        int m = matrix.size(), n = matrix[0].size();
+        m = matrix.size(), n = matrix[0].size();
         prefix = vector(m + 1, vector<T>(n + 1, 0));
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -33,7 +34,7 @@ public:
         }
     }
     void init(const vector<vector<char>>& matrix) {
-        int m = matrix.size(), n = matrix[0].size();
+        m = matrix.size(), n = matrix[0].size();
         prefix = vector(m + 1, vector<T>(n + 1, 0));
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -45,7 +46,7 @@ public:
     // 0-index
     // sum region of top-left (r1,c1) to botton-right (r2,c2)
     T sumRegion(int r1, int c1, int r2, int c2) {
-        return prefix[r2 + 1][c2 + 1] - prefix[r2 + 1][c1] - prefix[r1][c2 + 1] + prefix[r1][c1];
+        return prefix[min(m, r2 + 1)][min(n, c2 + 1)] - prefix[min(m, r2 + 1)][max(0, c1)] - prefix[max(0, r1)][min(n, c2 + 1)] + prefix[max(0, r1)][max(0, c1)];
     }
 };
 
