@@ -5,7 +5,7 @@ template <typename T>
 class SegTreeNode {
 public:
     // Note: all arrays are 1-index
-    vector<T> tree;LL
+    vector<T> tree;
     vector<T> lazy;
 #ifdef localMinMax
     const long long LINF = 0x3f3f3f3f3f3f3f3fLL;
