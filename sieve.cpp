@@ -1,35 +1,29 @@
-int maxPrimeSize = size + 1; //should be larger than max value
+int SIZE = ; // max(num)
+int maxPrimeSize = SIZE + 1; //should be larger than max value
 vector<bool> isPrime(maxPrimeSize + 1, true);
-vector<int> primeTable;
-void sieve(int size) {
-	if (size < 0) {
-		return;
+vector<int> prefixPrimeCount(maxPrimeSize + 1);
+auto sieve = [] {
+	if (maxPrimeSize < 0) {
+		return 0;
 	}
-	if (size == 0) {
+	if (maxPrimeSize == 0) {
 		isPrime[0] = false;
-		return;
+		return 0;
 	}
 	isPrime[0] = isPrime[1] = false;
-	if (size == 1) {
-		return;
+	if (maxPrimeSize == 1) {
+		return 0;
 	}
-	int sqrt_size = sqrt(size);
-	// size = sqrt_size
-	// if we don't need primeTable, we can use only sqrt_size
-	// that can reduce time complexity to sqrt(N)loglog(sqrt(N))
-	// if we need primeTable, we would use [2, size]
-	// time: O(Nloglog(N))
-	for(int i = 2; i <= size; i++) {
-		if(isPrime[i]) {
-			primeTable.push_back(i);
-			for(long long j = (long long)i * i; j <= size; j += i) {
+	for (int i = 2; i <= maxPrimeSize; i++) {
+		if (isPrime[i]) {
+			prefixPrimeCount[i] = prefixPrimeCount[i - 1] + 1;
+			for (long long j = (long long)i * i; j <= maxPrimeSize; j += i) {
 				isPrime[j] = false;
 			}
 		}
+		else {
+			prefixPrimeCount[i] = prefixPrimeCount[i - 1];
+		}
 	}
-}
-int main () {
-	if (primeTable.empty()) {
-		sieve(maxPrimeSize);
-	}
-}
+	return 0;
+}();
