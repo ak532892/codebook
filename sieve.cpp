@@ -14,8 +14,9 @@ void sieve(int size) {
 		return;
 	}
 	int sqrt_size = sqrt(size);
+	// size = sqrt_size
 	// if we don't need primeTable, we can use only sqrt_size
-	// that can reduce time complexity to sqrt(N)loglog(N)
+	// that can reduce time complexity to sqrt(N)loglog(sqrt(N))
 	// if we need primeTable, we would use [2, size]
 	// time: O(Nloglog(N))
 	for(int i = 2; i <= size; i++) {
