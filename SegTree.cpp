@@ -168,7 +168,7 @@ public:
     // increase treeVal[L, R] by val
     // time: O(log(n))
     void updateRangeDelta(int id, int l, int r, int L, int R, T val) {
-      if (L <= l && r <= R) {
+        if (L <= l && r <= R) {
             do_(id, l, r, val);
             // not update to the next level
             return;
