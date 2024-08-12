@@ -7,8 +7,11 @@ template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag
 ordered_set<int> oset;
 oset.insert(1);
 
-// 找第k小的值 (k是從0開始 也就是從最小值開始)
+// 找第k小的值 (k是從0開始 也就是說第0小 就是最小值)
 *oset.find_by_order(k);
+ 
+// 找第k大的值 (k是從0開始 也就是說第0大 就是最大值)
+*oset.find_by_order(oset.size() - 1 - k)
 
 // 回傳有幾個數字小於num, 改成less_equal也沒救
 oset.order_of_key(num);
