@@ -1,8 +1,14 @@
 #include <ext/pb_ds/tree_policy.hpp>
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace __gnu_pbds;
+
+// 如果元素不重複
 template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-// less_equal 用於比較大小, 也可以改成less
+ 
+// 如果元素重複
+template<typename T> using ordered_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
+// 一個是less, 另一個是less_equal
 
 ordered_set<int> oset;
 oset.insert(1);
