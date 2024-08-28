@@ -26,11 +26,6 @@ public:
         return x;
     }
 	
-    void erase(int x) {
-        --rank[find(x)];
-        parent[x] = x;
-    }
-
     void union_set(int x, int y) {
         x = find(x), y = find(y);
  
@@ -42,6 +37,22 @@ public:
         }
         parent[y] = x;
         rank[x] += rank[y];
+    }
+    
+	// need to check if delete elements is leaf or not
+    void erase(int x) {
+        --rank[find(x)];
+        parent[x] = x;
+    }
+	
+    void move(int x, int y) {
+		int fx = find(x), fy = find(y);
+		
+		if (fx == fy) {
+			return;
+		}
+		parent[x] = fy;
+		--rank[fx], ++rank[fy];
     }
 };
 
