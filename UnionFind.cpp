@@ -39,20 +39,20 @@ public:
         rank[x] += rank[y];
     }
     
-	// need to check if delete elements is leaf or not
+    // need to check if delete elements is leaf or not
     void erase(int x) {
         --rank[find(x)];
         parent[x] = x;
     }
 	
     void move(int x, int y) {
-		int fx = find(x), fy = find(y);
-		
-		if (fx == fy) {
-			return;
-		}
-		parent[x] = fy;
-		--rank[fx], ++rank[fy];
+        int fx = find(x), fy = find(y);
+
+        if (fx == fy) {
+            return;
+        }
+        parent[x] = fy;
+        --rank[fx], ++rank[fy];
     }
 };
 
