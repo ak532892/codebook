@@ -38,6 +38,10 @@ public:
         parent[y] = x;
         rank[x] += rank[y];
     }
+
+    int getSize(int x) {
+        return rank[find(x)];
+    }
     
     // need to check if delete elements is leaf or not
     void erase(int x) {
