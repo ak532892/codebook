@@ -32,11 +32,6 @@ string to_string(tuple<A, B, C, D> p) { return "(" + to_string(get<0>(p)) + ", "
 void debug_out() { cout << endl; }
 template <typename Head, typename... Tail> void debug_out(Head H, Tail... T) { cout << " " << to_string(H); debug_out(T...); }
 
-#include <ext/pb_ds/tree_policy.hpp>
-#include <ext/pb_ds/assoc_container.hpp>
-using namespace __gnu_pbds;
-template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-
 using ll = long long;
 using ld = long double;
 
