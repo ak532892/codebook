@@ -164,6 +164,16 @@ public:
 #endif
     }
 
+    // use for assign value
+    void do2_(int id, int l, int r, T val) {
+        tree[id] = (r - l + 1) * val;
+        lazy[id] = val;
+#ifdef localMinMax
+        treeMin[id] = val;
+        treeMax[id] = val;
+#endif
+    }
+
     // updateRangeDelta(1, 1, n, L, R, val)
     // increase treeVal[L, R] by val
     // time: O(log(n))
