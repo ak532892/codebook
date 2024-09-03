@@ -1,12 +1,11 @@
 class UnionFind {
 public:
     vector<int> parent, rank;
+    int groupCount;
 
     UnionFind(){}
-    UnionFind(int n) : parent(n), rank(n, 1) {
-        for (int i = 0; i < n; i++) {
-            parent[i] = i;
-        }
+    UnionFind(int n) : parent(n), rank(n, 1), groupCount(n) {
+        iota(parent.begin(), parent.end(), 0);
     }
 
     void init(int n) {
@@ -37,13 +36,14 @@ public:
         }
         parent[y] = x;
         rank[x] += rank[y];
+        groupCount--;
     }
-
+    
     int getSize(int x) {
         return rank[find(x)];
     }
     
-    // need to check if delete elements is leaf or not
+    // need to check if deleted elements is leaf or not
     void erase(int x) {
         --rank[find(x)];
         parent[x] = x;
