@@ -22,9 +22,9 @@ public:
             hashes2.resize(n + 5);
             for (long long i = 1; i <= n; i++) {
                 powers[i] = powers[i - 1] * seed;
-				powers[i] %= mod;
+                powers[i] %= mod;
                 powers2[i] = powers2[i - 1] * seed2;
-				powers2[i] %= mod2;
+                powers2[i] %= mod2;
             }
             for (long long i = 1; i <= n; i++) {
                 hashes[i] = hashes[i - 1] * seed+arr[i];
@@ -53,9 +53,9 @@ public:
             // inclusive
             // 1 indexed
             long long hsh = hashes[r] - hashes[l - 1] * powers[r - l + 1] % mod;
-			hsh += mod; hsh %= mod;
+            hsh += mod; hsh %= mod;
             long long hsh2 = hashes2[r] - hashes2[l - 1] * powers2[r - l + 1] % mod2;
-			hsh2 += mod2; hsh2 %= mod2;
+            hsh2 += mod2; hsh2 %= mod2;
             return {hsh, hsh2};
         }
     };
