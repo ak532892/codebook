@@ -30,9 +30,9 @@ struct state {
     int l;
 };
 auto cmp = [](const state& a, const state& b) {
-	return a.i < b.i || (a.i == b.i && a.j < b.j) ||
-		   (a.i == b.i && a.j == b.j && a.k < b.k) || 
-		   (a.i == b.i && a.j == b.j && a.k == b.k && a.l < b.l);
+    return a.i < b.i || (a.i == b.i && a.j < b.j) ||
+        (a.i == b.i && a.j == b.j && a.k < b.k) || 
+        (a.i == b.i && a.j == b.j && a.k == b.k && a.l < b.l);
 };
 
 map<state, int, decltype(cmp)> dp(cmp); 
