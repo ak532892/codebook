@@ -80,7 +80,7 @@ public:
         while (!pq.empty()) {
             auto [curCost, curNode] = pq.top();
             pq.pop();
-			if (curNode == end) {
+            if (curNode == end) {
                 return minCost[curNode];
             }
             if (curCost > minCost[curNode]) {
@@ -198,10 +198,10 @@ public:
         }
         for (int k = 0; k < n; ++k) {
             for (int i = 0; i < n; ++i) {
-            	// optimize
-            	if (graph[i][k] == LINF) {
-            		continue;
-            	}
+                // optimize
+                if (graph[i][k] == LINF) {
+                    continue;
+                }
                 for (int j = 0; j < n; ++j) {
                     graph[i][j] = min(graph[i][j], graph[i][k] + graph[k][j]);
                 }
@@ -213,8 +213,9 @@ public:
         int from = edge[0];
         int to = edge[1];
         int cost = edge[2];
-		if (cost >= graph[from][to]) // 无需更新
+        if (cost >= graph[from][to]) { // 无需更新
             return;
+        }
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
                 graph[i][j] = min(graph[i][j], graph[i][from] + cost + graph[to][j]);
