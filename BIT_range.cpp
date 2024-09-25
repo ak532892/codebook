@@ -13,13 +13,13 @@ public:
         sum2.resize(n + 2);
         init(nums);
     }
-	fenwick_tree2(int _n) : n(_n) {
+    fenwick_tree2(int _n) : n(_n) {
         sum1.resize(n + 2);
         sum2.resize(n + 2);
     }
     fenwick_tree2() {}
 	
-	void init(int _n) {
+    void init(int _n) {
         n = _n;
         sum1.resize(n + 2);
         sum2.resize(n + 2);
