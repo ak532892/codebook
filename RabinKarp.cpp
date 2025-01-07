@@ -1,9 +1,9 @@
 vector<int> RabinKarp(string &text, string &pattern) {
-    int s_len = text.size(), p_len = pattern.size();
+    int t_len = text.size(), p_len = pattern.size();
     vector<int> match_index;
 
     if (p_len == 0) return match_index;
-    if (s_len == 0) return match_index;
+    if (t_len == 0) return match_index;
 
     const int MOD = 1e9 + 7;
     long long power = 1, base = 29;
@@ -18,7 +18,7 @@ vector<int> RabinKarp(string &text, string &pattern) {
     }
 
     long long text_hash = 0;
-    for (int i = 0; i < s_len; i++) {
+    for (int i = 0; i < t_len; i++) {
         text_hash = (text_hash * base + (text[i] - 'a')) % MOD;
         if (i < p_len - 1) {
             continue;
