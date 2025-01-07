@@ -1,40 +1,40 @@
 vector<int> RabinKarp(string &text, string &pattern) {
-    int sLen = text.size(), pLen = pattern.size();
+    int s_len = text.size(), p_len = pattern.size();
     vector<int> match_index;
 
-    if (pLen == 0) return match_index;
-    if (sLen == 0) return match_index;
+    if (p_len == 0) return match_index;
+    if (s_len == 0) return match_index;
 
     const int MOD = 1e9 + 7;
     long long power = 1, base = 29;
 
-    for (int i = 0; i < pLen; i++) {
+    for (int i = 0; i < p_len; i++) {
         power = (power * base) % MOD;
     }
 
-    long long pattern_hash2 = 0;
-    for (int i = 0; i < pLen; i++) {
-        pattern_hash2 = (pattern_hash2 * base + (pattern[i] - 'a')) % MOD;
+    long long pattern_hash = 0;
+    for (int i = 0; i < p_len; i++) {
+        pattern_hash = (pattern_hash * base + (pattern[i] - 'a')) % MOD;
     }
 
-    long long text_hash1 = 0;
-    for (int i = 0; i < sLen; i++) {
-        text_hash1 = (text_hash1 * base + (text[i] - 'a')) % MOD;
-        if (i < pLen - 1) {
+    long long text_hash = 0;
+    for (int i = 0; i < s_len; i++) {
+        text_hash = (text_hash * base + (text[i] - 'a')) % MOD;
+        if (i < p_len - 1) {
             continue;
         }
 
-        if (i >= pLen) {
-            text_hash1 = (text_hash1 - (text[i - pLen] - 'a') * power) % MOD;
+        if (i >= p_len) {
+            text_hash = (text_hash - (text[i - p_len] - 'a') * power) % MOD;
 
-            if (text_hash1 < 0) {
-                text_hash1 += MOD;
-                text_hash1 %= MOD;
+            if (text_hash < 0) {
+                text_hash += MOD;
+                text_hash %= MOD;
             }
         }
 
-        if (text_hash1 == pattern_hash2) {
-            int start = i - pLen + 1;
+        if (text_hash == pattern_hash) {
+            int start = i - p_len + 1;
             // bool equal = true;
             // for (int j = start, k = 0; j <= i; j++, k++) {
             //     if (text[j] != pattern[k]) {
