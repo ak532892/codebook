@@ -14,5 +14,6 @@ vector<int> z_function(const string &s) {
             r = i + z[i];
         }
     }
+    z[0] = n; // not use
     return z;
 }
