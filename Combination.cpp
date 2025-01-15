@@ -1,13 +1,14 @@
-========verson1========
+======== verson1 ========
+// Pascal triangle
     
-const int MOD = 1e9 + 7, max_comb_size1 = size1 + 1, max_comb_size2 = size2 + 1;
-long long comb[max_comb_size1][max_comb_size2];
-int combPrecompute = []{
+const int MOD = 1e9 + 7, max_comb_size = size + 1;
+long long comb[max_comb_size][max_comb_size];
+int combPreCompute = []{
     comb[0][0] = 1;
-    for (int i = 1; i < max_comb_size1; ++i) {
-        comb[i][0] = 1;
-        for (int j = 1; j < max_comb_size2; ++j) {
-            comb[i][j] = (comb[i - 1][j] + comb[i - 1][j - 1]) % MOD;
+    for (int n = 1; n < max_comb_size; ++n) {
+        comb[n][0] = comb[n][n] = 1;
+        for (int k = 1; k < n; ++k) {
+            comb[n][k] = (comb[n - 1][k] + comb[n - 1][k - 1]) % MOD;
         }
     }
     return 0;
@@ -15,7 +16,7 @@ int combPrecompute = []{
 
 cout<<comb[n][k];
 
-========verson2========
+======== verson2 ========
     
 const int MOD = 1'000'000'007;
 const int MX = 2001;
