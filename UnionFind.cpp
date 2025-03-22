@@ -17,12 +17,10 @@ public:
     }
 
     int find(int x) {
-        x = parent[x];
-        while (x != parent[x]) {
-            parent[x] = parent[parent[x]];
-            x = parent[x];
-        }
-        return x;
+	if (x == parent[x]) {
+	    return x;
+	}
+        return parent[x] = find(parent[x]);
     }
 	
     void union_set(int x, int y) {
